@@ -3,6 +3,7 @@ require('minitest/reporters')
 require_relative('../pub')
 require_relative('../drinks')
 require_relative('../customer')
+require_relative('../food')
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 class TestClassPub < MiniTest::Test
 
@@ -11,6 +12,7 @@ class TestClassPub < MiniTest::Test
     @drink2 = Drink.new('Gin and Tonic', 5, 5)
     @drink3 = Drink.new('Double Vodka and Coke', 6, 8)
     @customer1 = Customer.new('Father Jack', 20, 65, 0)
+    @food1 = Food.new('Pizza', 10, 3)
     @pub_name = Pub.new('Pirn Inn', 100, [@drink1, @drink2, @drink3])
 
 
@@ -45,11 +47,14 @@ def test_customer_pished
   assert_equal(false, actual)
 end
 
-# def test_can_sell_multiple_drinks
-#   @pub_name.sell_drink(@drink1)
-#   @pub_name.sell_drink(@drink2)
-#   @pub_name.sell_drink(@drink3)
-#   assert_equal(3, )
-# end
+def test_can_sell_food
+  @pub_name.sell_food(@food1)
+  assert_equal(2, @pub_name.food.size)
+end
+
+
+
+
+
 
 end

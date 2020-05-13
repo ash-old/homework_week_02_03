@@ -20,12 +20,16 @@ end
 def buy_a_drink(drink, pub_name)
   pub_name.sell_drink(drink)
   @wallet -= drink.price
-  @drunkness_level += alcohol_level
+  @drunkness_level = drink.alcohol_level
 end
 
 def drunkness_level
   return @drunkness_level
 end
 
+def eats_food(food)
+  @wallet -= food.price
+  @drunkness_level = food.rejuvenation_level
+end
 
 end

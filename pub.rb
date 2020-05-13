@@ -39,7 +39,11 @@ class Pub
     return result
   end
 
-
+def sell_food(food)
+  @till += food.price
+  sold_food = @food.delete(food)
+  return sold_food
+end
 
 
 end
